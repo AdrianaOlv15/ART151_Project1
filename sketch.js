@@ -17,60 +17,38 @@ function draw(){
     fill(0,10);
     rect(0,0,width, height);
 
-    //let n = random(0, width);
-
-    // get a noise value based on xoff and scale
-    // it's according to the window's width
-    //let n = noise(xoff) * random(0, height);
-
-    //let o = noise(yoff) * random(0, width);
-
     xoff += xincrement;
-
     yoff += yincrement;
 
+    // color of the circles
+    //let myColor = color(92, 255, 228);
+    let myColor = color(0, random(0,200), random(0,200));
 
+    // range of sizes for the circles
+    nextSize = random(100, 200);
 
-    fill(random(0, 10),random(0, 200),random(0, 200));
-
-    size1 = random(0, 250);
-
+    // random postion of circle
     xposition = random(0, width);
     yposition = random(0, height)
 
-    ellipse(xposition, yposition, size1 , size1);
+    // 1st circle - color
+    fill(myColor);
+    ellipse(xposition, yposition, nextSize , nextSize); //100
 
-    // 1st circle - different color & size 
-    reduction1 = random(5,20);
-    finalSize1 = size1 - reduction1;
-    fill(random(0, 5),random(0, 100),random(0, 255));
-    ellipse(xposition, yposition, finalSize1 , finalSize1);
+    // smaller circle inside
+    for (let i = 0; i < 50; i++){
 
-    // 2nd circle - different color & smaller size 
-    reduction2 = random(5,20);
-    finalSize2 = finalSize1 - reduction2;
-    fill(random(0, 5),random(0, 100),random(0, 255));
-    ellipse(xposition, yposition, finalSize2 , finalSize2);
+        let myColor = color(0, random(0,200), random(0,200));
 
-    // 3rd circle - different color & smaller size 
-    reduction3 = random(5,20);
-    finalSize3 = finalSize2 - reduction3;
-    fill(random(0, 5),random(0, 100),random(0, 255));
-    ellipse(xposition, yposition, finalSize3 , finalSize3);
-
-    // 4th circle - different color & smaller size 
-    reduction4 = random(5,20);
-    finalSize4 = finalSize3 - reduction4;
-    fill(random(0, 5),random(0, 100),random(0, 255));
-    ellipse(xposition, yposition, finalSize4 , finalSize4);
-
-    // 5th circle - different color & smaller size 
-    reduction5 = random(5,20);
-    finalSize5 = finalSize4 - reduction5;
-    fill(random(0, 5),random(0, 100),random(0, 255));
-    ellipse(xposition, yposition, finalSize5 , finalSize5);
-
- 
+        // calculate smaller circle size
+            nextSize = nextSize - nextSize/10;
+        // alternate colors
+            if ( (i%2) == 0 ) { fill(0,0,0); }
+            else { fill(myColor); }
+        // draw circle
+            frameRate(15);
+            ellipse(xposition, yposition, nextSize , nextSize);
+    }   
 }
 
 
