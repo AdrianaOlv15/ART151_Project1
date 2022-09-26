@@ -115,12 +115,12 @@ function draw(){
     let nextC = 0;
 
     if ((count+1)%3 == 0) {
-        nextC = color(0, random(0,255), random(0,255));
+        nextC = color(0, random(0,190), random(0,225));
     } else if ((count+1)%3 == 1) {
-        nextC = color(random(0,255), random(0,255), 0);
+        nextC = color(random(0,190), random(0,225), 0);
 
     } else if ((count+1)%3 == 2) {
-        nextC = color(random(0,255), 0, random(0,255));
+        nextC = color(random(0,190), 0, random(0,225));
     } 
 
     let newSize = random(50,50);
